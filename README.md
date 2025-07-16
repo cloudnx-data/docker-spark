@@ -1,5 +1,6 @@
 # docker-spark
-Docker-based setup for running Apache Spark locally or in development environments, supporting standalone or multi-node cluster configurations.
+
+A Docker-based setup for running Apache Spark locally or in development environments, supporting both standalone and multi-node cluster configurations.
 
 ## Features
 
@@ -24,48 +25,50 @@ Docker-based setup for running Apache Spark locally or in development environmen
     ```bash
     docker-compose up
     ```
-    This will start a Spark master and a single worker.
+    This starts a Spark master and a single worker.
 
-3. **Access Spark UI:**
-- Spark History Server UI: [http://localhost:18080](http://localhost:18080)
-- Spark Master  Server UI: [http://localhost:18080](http://localhost:9090)
-      
+3. **Access Spark UIs:**
+    - **Spark Master UI:** [http://localhost:9090](http://localhost:9090)
+    - **Spark History Server UI:** [http://localhost:18080](http://localhost:18080)
+
 4. **(Recommended) Install Make for easier usage:**
-    - For simplified commands and workflow, install [Make](https://www.gnu.org/software/make/) and use the provided `Makefile`:
-        ```bash
-        # On macOS (with Homebrew)
-        brew install make
+    For simplified commands and workflow, install [Make](https://www.gnu.org/software/make/) and use the provided `Makefile`:
+    ```bash
+    # On macOS (with Homebrew)
+    brew install make
 
-        # On Ubuntu/Debian
-        sudo apt-get install make
-        ```
-    - Then you can run:
-        ```bash
-        make run-scaled                                   # Start the cluster with 3 nodes
-        make down                                         # Stop and remove containers
-        make submit --app=path/to/file/file.py            # View logs
-        ```
+    # On Ubuntu/Debian
+    sudo apt-get install make
+    ```
+    Then you can run:
+    ```bash
+    make run-scaled                                   # Start the cluster with 3 nodes
+    make down                                         # Stop and remove containers
+    make submit --app=path/to/file/file.py            # Submit a Spark job to the cluster
+    ```
 
 ## Configuration
 
 - Edit `docker-compose.yml` to adjust Spark settings, environment variables, or add/remove services.
-- Mount local volumes for data persistence or sharing code.
+- Mount local volumes for data persistence or to share code.
 
 ## Stopping the Cluster
 
 To stop and remove containers:
 ```bash
 docker-compose down
+or 
+make stop
 ```
 
 ## Troubleshooting
 
 - Ensure Docker and Docker Compose are installed and running.
 - Check container logs for errors:
-  ```bash
-  docker-compose logs
-  ```
+    ```bash
+    docker-compose logs
+    ```
 
 ## License
 
-Apache License
+[Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)
