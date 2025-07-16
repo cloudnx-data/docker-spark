@@ -72,3 +72,7 @@ make stop
 ## License
 
 [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)
+
+## Reference
+
+For the official and complete Docker setup for Apache Spark, see the [apache/spark-docker GitHub repository](https://github.com/apache/spark-docker/tree/master).
